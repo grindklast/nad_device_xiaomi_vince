@@ -14,6 +14,14 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+   <!-- Whether device supports sensor based doze customizations -->
+   <bool name="config_dozePulsePickup">true</bool>
+   <bool name="config_dozePulseTilt">true</bool>
+   <bool name="config_dozePulseProximity">true</bool>
+
+   <!-- Whether or not we should show vendor mismatch message -->
+   <bool name="config_show_vendor_mismatch_message">false</bool>
+
    <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
         autodetected from the Configuration. -->
    <bool name="config_showNavigationBar">true</bool>
@@ -45,10 +53,5 @@
         For example, a device with notification and battery lights that supports
         pulsating and RGB control would set this config to 75. -->
    <integer name="config_deviceLightCapabilities">104</integer>
-
-   <!-- Whether device supports sensor based doze customizations -->
-   <bool name="config_dozePulsePickup">true</bool>
-   <bool name="config_dozePulseTilt">true</bool>
-   <bool name="config_dozePulseProximity">true</bool>
    
 </resources>
