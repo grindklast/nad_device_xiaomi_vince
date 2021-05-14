@@ -361,10 +361,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     NusantaraPapers
 
-# Prebuilt Packages
-PRODUCT_PACKAGES += \
-    GCamGo
-
 # OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
@@ -390,6 +386,10 @@ PRODUCT_PACKAGES += \
     android.hardware.power@1.1.vendor \
     android.hardware.power@1.2.vendor \
     android.hardware.power-service.vince-libperfmgr
+
+# Prebuilt Packages
+#PRODUCT_PACKAGES += \
+#    GCamGo
 
 # Public libraries
 PRODUCT_COPY_FILES += \
@@ -419,6 +419,10 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.target.rc \
     ueventd.qcom.rc
+
+# Remove unwanted packages
+PRODUCT_PACKAGES += \
+    remove_packages
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
