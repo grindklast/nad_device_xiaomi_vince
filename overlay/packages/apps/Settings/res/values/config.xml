@@ -25,4 +25,7 @@
   <bool name="config_showChargingCycles">true</bool>
   <string name="config_batChargeCycle">/sys/class/power_supply/bms/cycle_count</string>
 
+  <!-- Adaptive Charging -->
+  <bool name="config_supportAdaptiveCharging">true</bool>
+
 </resources>
