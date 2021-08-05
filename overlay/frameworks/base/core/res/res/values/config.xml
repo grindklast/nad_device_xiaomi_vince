@@ -65,5 +65,9 @@
    <string name="config_adaptiveChargingSysfsNode" translatable="false">/sys/class/power_supply/battery/charging_enabled</string>
    <string name="config_adaptiveChargingSuspendValue" translatable="false">0</string>
    <string name="config_adaptiveChargingResumeValue" translatable="false">1</string>
+
+   <!-- Does the battery LED support multiple colors?
+        Used to decide if the user can change the colors -->
+   <bool name="config_multiColorBatteryLed">false</bool>
    
 </resources>
