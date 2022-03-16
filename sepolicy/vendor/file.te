@@ -16,6 +16,9 @@ type gx_fpd_data_file, file_type, data_file_type, core_data_file_type;
 # netmgr
 type netmgr_data_file, file_type, data_file_type;
 
+# Power
+type vendor_sysfs_kgsl, fs_type, sysfs_type;
+
 # Rild
 type rild_file, file_type, vendor_file_type;
 
