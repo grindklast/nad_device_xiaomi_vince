@@ -1,17 +1,7 @@
 #
-# Copyright (C) 2017-2018 The LineageOS Project
+# Copyright (C) 2022 The LineageOS Project
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# SPDX-License-Identifier: Apache-2.0
 #
 
 DEVICE_PATH := device/xiaomi/vince
@@ -45,21 +35,6 @@ TARGET_BOARD_SUFFIX := _64
 TARGET_USES_64_BIT_BINDER := true
 
 TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
-
-# Kernel
-TARGET_KERNEL_CONFIG := vince_defconfig
-BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78af000 androidboot.usbconfigfs=true loop.max_part=16
-#BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-BOARD_KERNEL_PAGESIZE :=  2048
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
-TARGET_KERNEL_SOURCE := kernel/xiaomi/vince
-TARGET_KERNEL_VERSION := 4.9
-TARGET_KERNEL_NEW_GCC_COMPILE := true
-
-# Use clang 11
-#TARGET_KERNEL_CLANG_COMPILE := true
 
 # ANT
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
@@ -112,7 +87,7 @@ ifeq ($(HOST_OS),linux)
 endif
 
 # Display
-TARGET_SCREEN_DENSITY := 480
+TARGET_SCREEN_DENSITY := 400
 TARGET_USES_ION := true
 TARGET_USES_NEW_ION_API :=true
 TARGET_USES_GRALLOC1 := true
@@ -121,9 +96,6 @@ TARGET_USES_OVERLAY := true
 
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 USE_OPENGL_RENDERER := true
-
-# UI
-TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS :=  0x2000
 
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
@@ -154,6 +126,19 @@ DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/compatibility_matrix.xml
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/vendor.qti.esepowermanager@1.0-service.xml
+
+# Kernel
+TARGET_KERNEL_CONFIG := vince-perf_defconfig
+BOARD_KERNEL_BASE := 0x80000000
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78af000 androidboot.usbconfigfs=true loop.max_part=16
+#BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+BOARD_KERNEL_PAGESIZE :=  2048
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
+TARGET_KERNEL_SOURCE := kernel/xiaomi/vince
+TARGET_KERNEL_VERSION := 4.9
+TARGET_KERNEL_NEW_GCC_COMPILE := true
+KERNEL_TOOLCHAIN_arm64 := $(pwd)/prebuilts/gcc/linux-x86/arm64/aarch64-elf/bin
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
@@ -188,7 +173,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.recovery.qcom
 DISABLE_RILD_OEM_HOOK := true
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2020-08-01
+VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 
 # SELinux
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
@@ -202,6 +187,9 @@ TARGET_THERMAL_HAL := true
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 BOARD_VNDK_VERSION := current
+
+# UI
+TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS :=  0x2000
 
 # Wi-Fi
 BOARD_HAS_QCOM_WLAN := true
