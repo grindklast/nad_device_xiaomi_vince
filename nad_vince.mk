@@ -1,5 +1,5 @@
 #
-# Copyright (C) NusantaraProject
+# Copyright (C) 2022 NusantaraProject
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -19,6 +19,11 @@ $(call inherit-product, device/xiaomi/vince/device.mk)
 
 # Inherit some common Nusantara stuff.
 $(call inherit-product, vendor/nusantara/config/common_full_phone.mk)
+NAD_BUILD_TYPE := OFFICIAL
+TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_FACE_UNLOCK_SUPPORTED := true
+TARGET_GAPPS_ARCH := arm64
+USE_PIXEL_CHARGING := true
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := vince
@@ -28,25 +33,15 @@ PRODUCT_MODEL := Redmi 5 Plus
 PRODUCT_MANUFACTURER := Xiaomi
 TARGET_VENDOR := Xiaomi
 BOARD_VENDOR := Xiaomi
-NAD_BUILD_TYPE := OFFICIAL
-USE_PIXEL_CHARGING := true
-
-# Boot animation
-TARGET_BOOT_ANIMATION_RES := 1080
-
-# GApps
-TARGET_GAPPS_ARCH := arm64
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="redfin-user 12 SQ1A.220105.002 7961164 release-keys"
+# Fingerprint
+BUILD_DESCRIPTION := redfin-user 12 SP2A.220405.003 8210211 release-keys
+BUILD_FINGERPRINT := google/redfin/redfin:12/SP2A.220405.003/8210211:user/release-keys
 
-# Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := "google/redfin/redfin:12/SQ1A.220105.002/7961164:user/release-keys"
-
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.fingerprint=$(BUILD_FINGERPRINT)
 
-# Face Unlock
-TARGET_FACE_UNLOCK_SUPPORTED := true
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRIVATE_BUILD_DESC="$(BUILD_DESCRIPTION)"
