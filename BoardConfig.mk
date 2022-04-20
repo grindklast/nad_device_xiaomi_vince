@@ -43,7 +43,7 @@ TARGET_USES_64_BIT_BINDER := true
 TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 
 # Kernel
-TARGET_KERNEL_CONFIG := vince_defconfig
+TARGET_KERNEL_CONFIG := vince-perf_defconfig
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78af000 androidboot.usbconfigfs=true loop.max_part=16
 #BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
@@ -52,6 +52,8 @@ BOARD_KERNEL_PAGESIZE :=  2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 TARGET_KERNEL_SOURCE := kernel/xiaomi/vince
 TARGET_KERNEL_VERSION := 4.9
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-elf-
+KERNEL_TOOLCHAIN := $(PWD)/prebuilts/gcc/linux-x86/aarch64/aarch64-elf/bin
 
 # ANT
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
