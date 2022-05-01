@@ -185,7 +185,7 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 
 # Dirac
 PRODUCT_PACKAGES += \
-	Dirac
+    Dirac
 
 # Display
 PRODUCT_PACKAGES += \
@@ -219,6 +219,9 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.2.vendor \
     android.hardware.drm@1.1.vendor \
     android.hardware.drm@1.0.vendor
+
+# Enable real time lockscreen charging current values
+BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
 
 # Fingerprint
 PRODUCT_PACKAGES += \
@@ -284,6 +287,10 @@ PRODUCT_PACKAGES += \
 # HW crypto
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.cryptfshw@1.0-service-qti.qsee
+
+# Nusantara Papers
+PRODUCT_PACKAGES += \
+    NusantaraPapers
 
 # IMS
 PRODUCT_PACKAGES += \
