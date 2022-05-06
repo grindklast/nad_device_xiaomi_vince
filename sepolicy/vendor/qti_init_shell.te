@@ -1,8 +1,3 @@
-typeattribute qti_init_shell data_between_core_and_vendor_violators;
-
-# Required for FM
-allow qti_init_shell self:socket create;
-
 allow qti_init_shell bluetooth_data_file:file r_file_perms;
 allow qti_init_shell ctl_default_prop:property_service set;
 allow qti_init_shell ctl_start_prop:property_service set;
@@ -16,8 +11,13 @@ allow qti_init_shell system_data_file:dir { getattr open read remove_name rmdir 
 allow qti_init_shell system_data_file:file { getattr };
 allow qti_init_shell self:capability { kill };
 allow qti_init_shell sysfs:dir setattr;
-allow qti_init_shell sysfs:file { setattr write };
 allow qti_init_shell sysfs_leds:dir setattr;
 allow qti_init_shell sysfs_leds:file setattr;
 allow qti_init_shell vfat:dir { open read search };
 allow qti_init_shell vfat:file { getattr open read };
+
+# Postboot
+allow qti_init_shell sysfs:file { write setattr };
+
+# Required for FM
+allow qti_init_shell self:socket create;
