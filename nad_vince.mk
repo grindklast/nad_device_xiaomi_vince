@@ -20,7 +20,7 @@ $(call inherit-product, device/xiaomi/vince/device.mk)
 # Inherit some common Nusantara goodies
 $(call inherit-product, vendor/nusantara/config/common_full_phone.mk)
 $(call inherit-product-if-exists, packages/apps/GameSpace/gamespace.mk)
-NAD_BUILD_TYPE := OFFICIAL
+NAD_BUILD_TYPE ?= OFFICIAL
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_DISABLE_POSTRENDER_CLEANUP := true
 TARGET_FACE_UNLOCK_SUPPORTED := true
@@ -31,7 +31,9 @@ TARGET_SUPPORTS_GOOGLE_RECORDER := true
 TARGET_SUPPORTS_QUICK_TAP := true
 TARGET_USES_AOSP_RECOVERY := false
 TARGET_USES_BLUR := true
-USE_GAPPS := true
+USE_AOSP_CLOCK ?= true
+USE_AOSP_LAUNCHER ?= true
+USE_GAPPS ?= true
 USE_PIXEL_CHARGING := true
 
 # Device identifier. This must come after all inclusions
@@ -44,11 +46,11 @@ TARGET_VENDOR := Xiaomi
 BOARD_VENDOR := Xiaomi
 
 # Fingerprint
-BUILD_DESCRIPTION := vince-user 8.1.0 OPM1.171019.019 V11.0.2.0.OEGMIXM release-keys
-BUILD_FINGERPRINT := xiaomi/vince/vince:8.1.0/OPM1.171019.019/V11.0.2.0.OEGMIXM:user/release-keys
+#BUILD_DESCRIPTION := vince-user 8.1.0 OPM1.171019.019 V11.0.2.0.OEGMIXM release-keys
+#BUILD_FINGERPRINT := google/redfin/redfin:12/SP2A.220505.002/8353555:user/release-keys
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.fingerprint=$(BUILD_FINGERPRINT)
+#PRODUCT_PROPERTY_OVERRIDES += \
+#ro.build.fingerprint=$(BUILD_FINGERPRINT)
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="$(BUILD_DESCRIPTION)"
+#PRODUCT_BUILD_PROP_OVERRIDES += \
+# PRIVATE_BUILD_DESC="$(BUILD_DESCRIPTION)"
