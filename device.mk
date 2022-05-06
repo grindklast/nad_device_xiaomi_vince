@@ -359,8 +359,8 @@ PRODUCT_PACKAGES += \
     libandroid_net
 
 # Prebuilt Packages
-PRODUCT_PACKAGES += \
-    GCamGo
+#PRODUCT_PACKAGES += \
+#GCamGo
 
 # OMX
 PRODUCT_PACKAGES += \
@@ -411,9 +411,9 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc
 
-# RenderScript HAL
+# Remove unwanted packages
 PRODUCT_PACKAGES += \
-    android.hardware.renderscript@1.0-impl
+    remove_packages
 
 # RIL
 PRODUCT_PACKAGES += \
