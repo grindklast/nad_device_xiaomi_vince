@@ -359,6 +359,10 @@ PRODUCT_PACKAGES += \
     android.system.net.netd@1.0 \
     libandroid_net
 
+# Nusantara Papers
+PRODUCT_PACKAGES += \
+    NusantaraPapers
+
 # Prebuilt Packages
 PRODUCT_PACKAGES += \
     GCamGo
