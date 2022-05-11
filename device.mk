@@ -39,11 +39,9 @@ PRODUCT_ENFORCE_RRO_TARGETS := \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-    hardware/google/interfaces \
-    hardware/google/pixel
+    $(LOCAL_PATH)
 
-# QCOM namespaces
+# QCOM namepsaces
 QCOM_SOONG_NAMESPACE := \
     $(LOCAL_PATH)/qcom-caf
 
