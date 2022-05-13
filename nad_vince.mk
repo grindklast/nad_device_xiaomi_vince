@@ -18,7 +18,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_system_ext.mk)
 $(call inherit-product, device/xiaomi/vince/device.mk)
 
 # Inherit some common Nusantara goodies
-$(call inherit-product, vendor/nusantara/config/common.mk)
+$(call inherit-product, vendor/nusantara/config/common_full_phone.mk)
 $(call inherit-product-if-exists, packages/apps/GameSpace/gamespace.mk)
 
 # Build flags
