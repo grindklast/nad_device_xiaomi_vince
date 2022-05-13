@@ -196,6 +196,9 @@ TARGET_PER_MGR_ENABLED := true
 TARGET_TAP_TO_WAKE_NODE := "/sys/devices/platform/soc/78b7000.i2c/i2c-3/3-0020/input/input2/wake_gesture"
 TARGET_HAS_NO_POWER_STATS := true
 
+# Prop
+TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
+
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
 
