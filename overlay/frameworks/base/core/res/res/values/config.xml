@@ -56,5 +56,8 @@
         For example, a device with notification and battery lights that supports
         pulsating and RGB control would set this config to 75. -->
    <integer name="config_deviceLightCapabilities">104</integer>
+
+   <!-- Aspect ratio of screen -->
+   <item name="config_screenAspectRatio" format="float" type="dimen">2.0</item>
    
 </resources>
