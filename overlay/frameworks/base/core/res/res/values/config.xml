@@ -19,6 +19,9 @@
    <bool name="config_dozePulseTilt">true</bool>
    <bool name="config_dozePulseProximity">true</bool>
 
+   <!-- Define that we use a higher screen ratio (18:9) than standard (16:9) -->
+   <bool name="config_haveHigherAspectRatioScreen">true</bool>
+
    <!-- Whether or not we should show vendor mismatch message -->
    <bool name="config_show_vendor_mismatch_message">false</bool>
 
